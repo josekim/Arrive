@@ -5,11 +5,13 @@ import SearchBar from './SearchBar';
 import Table from './Table';
 
 class TableContainer extends Component<State> {
-  state = { data: [], prevTerm: '' };
+  state = { data: [], prevTerm: '', forcedTerm: '' };
 
-  handleForceUpdate = () => {
-    console.log('Force Update Issued - API call should Follow'); // eslint-disable-line
-    this.setState({ prevTerm: '' });
+  handleForceUpdate = term => {
+    if (this.state.forcedTerm !== term) {
+      console.log('Force Update Issued - API call should Follow'); // eslint-disable-line
+      this.setState({ prevTerm: '', forcedTerm: term });
+    }
   };
   // eslint-disable-next-line
   callAPI = (term: string) => {
@@ -17,7 +19,7 @@ class TableContainer extends Component<State> {
     const prevTerm = this.state.prevTerm;
 
     // If deleting or new term is empty, don't make API call
-    if ((term.length < prevTerm.length && prevTerm.includes(term)) || term === '') {
+    if ((term.length <= prevTerm.length && prevTerm.includes(term)) || term === '') {
       self.setState({ prevTerm: term });
     } else {
       console.log('Call API'); // eslint-disable-line

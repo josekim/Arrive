@@ -30,7 +30,7 @@ Following Technolgies that are note worth for accomplish some of the task
     * Typing in a term will cause page to make API call once done typing.
     * Debounce keeps multiple calls from happening, there is .5sec delay
     * pressing Enter will force api Call. 
-    * Pressing enter will always force API call, so you can spam with that,  Decided not to add addional feature to stop that because of time constrains
+    * Also Force API spamming is not allowed with the same term.
 * Details will appear when clicking button
     * Only One Api is called for the row
 * I intentionally left some console log near the API calls and the Force Update

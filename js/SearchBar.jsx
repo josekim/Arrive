@@ -13,7 +13,7 @@ class SearchBar extends React.Component<Props, State> {
   };
   handleForceSubmit = (event: { preventDefault: Function }) => {
     event.preventDefault();
-    this.props.onForceUpdate(); // eslint-disable-line
+    this.props.onForceUpdate(this.state.searchTerm); // eslint-disable-line
     this.props.onSearchTermChange(this.state.searchTerm); // eslint-disable-line
   };
 
