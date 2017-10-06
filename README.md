@@ -1,8 +1,8 @@
-#Arrive Logistics Interview
+# Arrive Logistics Interview
 
 This was a coding challenge provide by Arrive Logisitics.  As part of their interview process, the following program was written in react to call a provided API and view the information.
 
-##Dependencies
+## Dependencies
 In the Terminal, run following commands,  You can then access the Webpage at  [localhost:8080](http://localhost:8080/)
 
 Also you may need to install chrome add on [Allow-Control-Allow-Origin: *](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related?hl=en).  I've never dealt with this issues before, there maybe a more elegant solution, but this was the quickest way i could solve it... was kind of a headache 🤦‍♂️
@@ -14,7 +14,7 @@ yarn start
 ```
 
 
-##Technologies
+## Technologies
 Following Technolgies that are note worth for accomplish some of the task
 
 * React
@@ -24,7 +24,7 @@ Following Technolgies that are note worth for accomplish some of the task
 * Prettier
 * Flow
 
-##Features
+## Features
 Search Function
 
 * Search term is a controlled component for the Search Term
@@ -37,7 +37,7 @@ Search Function
 * I intentionally left some console log near the API calls and the Force Update
 
 
-##issues
+## Issues
 
 * Details stay open if they are left open and you search another city that has the same Carriers available.  
     - since react only update dom with what needs to change, it leaves those components on the page and doesn't re-render them
