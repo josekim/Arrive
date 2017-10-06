@@ -19,10 +19,10 @@ Following Technolgies that are note worth for accomplish some of the task
 
 * React
 * Lodash
-* Axio
+* Axios
 * Eslint
 * Prettier
-* Flow
+* Flow 
 
 ## Features
 
@@ -41,7 +41,7 @@ Following Technolgies that are note worth for accomplish some of the task
 * Details stay open if they are left open and you search another city that has the same Carriers available.  
     - since react only update dom with what needs to change, it leaves those components on the page and doesn't re-render them.  Most people would probably be bothered by this.  Could map a redux state to it, but that maybe a bit overkill.  
     - another options is to replace original information in state with the detailed information, that way when A new search is made, it would re-render since the state changes. you would also have to change the button to not be a toggle but disappear once you got the new detailed information - though chaining up to the parent parent components isn't exactly ideal.  
-
+* Some Flow issues.  Weren't quite sure how to fix them, so Pardon the Commenting out of some of the errors.  Didn't want to spend the time to debug and figure out what was wrong for this.  
 
 ## thoughts to make it better
 
