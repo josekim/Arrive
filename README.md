@@ -9,6 +9,7 @@ Also you may need to install chrome add on [Allow-Control-Allow-Origin: *](https
 
 ``` 
 yarn
+yarn build
 yarn start
 ```
 
@@ -39,5 +40,8 @@ Search Function
 ##issues
 
 * Details stay open if they are left open and you search another city that has the same Carriers available.  
-    - since react only update dom with what needs to change, it leaves those components on the page
-    - since the component carries its own state for viewing, 
+    - since react only update dom with what needs to change, it leaves those components on the page and doesn't re-render them
+
+## thoughts to make it better
+
+* When API call made for Company details,  add this information to an array in the parent's state component and feed it back down
