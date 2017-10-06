@@ -2,22 +2,25 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import axios from 'axios';
 import SearchBar from './SearchBar';
-import TableLine from './TableLine';
+import Table from './Table';
 
 class TableContainer extends Component<State> {
   state = { data: [], prevTerm: '' };
 
   handleForceUpdate = () => {
+    console.log('Force Update Issued - API call should Follow'); // eslint-disable-line
     this.setState({ prevTerm: '' });
   };
   // eslint-disable-next-line
   callAPI = (term: string) => {
     const self = this;
     const prevTerm = this.state.prevTerm;
+
+    // If deleting or new term is empty, don't make API call
     if ((term.length < prevTerm.length && prevTerm.includes(term)) || term === '') {
       self.setState({ prevTerm: term });
     } else {
-      console.log('Call API');
+      console.log('Call API'); // eslint-disable-line
       axios
         .get(`http://arrive-interview-api.azurewebsites.net/api/carriers/${term}`)
         .then(response => {
@@ -28,20 +31,13 @@ class TableContainer extends Component<State> {
         });
     }
   };
-  sanitizeStateData = () => {
-    if (typeof this.state.data === 'string') {
-      return [{ Id: this.state.data, error: this.state.data }];
-    }
-    return this.state.data;
-  };
 
   render() {
     const delayAPICall = _.debounce(this.callAPI, 500);
-    const data = this.sanitizeStateData();
     return (
       <div>
         <SearchBar onForceUpdate={this.handleForceUpdate} onSearchTermChange={delayAPICall} />
-        <ul>{data.map(element => <TableLine key={element.Id} {...element} />)}</ul>
+        <Table data={this.state.data} />
       </div>
     );
   }
